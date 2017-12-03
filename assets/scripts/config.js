@@ -2,7 +2,7 @@
 
 const config = {
   apiOrigins: {
-    production: 'https://skycast.herokuapp.com'
+    production: 'https://skycast-railsapi.herokuapp.com/'
   }
 }
 
