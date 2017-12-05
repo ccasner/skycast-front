@@ -2,6 +2,7 @@
 
 const getFormFields = require('../../../lib/get-form-fields')
 const darkApi = require('./api')
+const darkUi = require('./ui')
 
 const onGetWeather = function (event) {
   event.preventDefault()
@@ -12,7 +13,8 @@ const onGetWeather = function (event) {
   console.log(event.target)
   console.log(data)
   darkApi.show(lat, long)
-    .then(console.log(data))
+    .then(darkUi.onSuccess)
+    .catch(darkUi.onFailure)
 }
 
 module.exports = {
