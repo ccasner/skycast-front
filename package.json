@@ -7,7 +7,9 @@
     "content": "CC­BY­NC­SA 4.0"
   },
   "dependencies": {
+    "dotenv": "^4.0.0",
     "jquery": "^3.2.1",
+    "node-env-file": "^0.1.8",
     "process-env": "^1.1.0"
   },
   "devDependencies": {
