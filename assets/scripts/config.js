@@ -3,7 +3,7 @@
 const config = {
   apiOrigins: {
     production: 'https://skycast-railsapi.herokuapp.com/',
-    darkSky: 'https://api.darksky.net/forecast/'
+    darkSky: 'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/'
   }
 }
 
