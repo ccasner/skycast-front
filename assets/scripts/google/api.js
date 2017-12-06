@@ -2,14 +2,19 @@
 
 const config = require('../config')
 
-const googleKey = process.env.GOOGLE_SECRET_KEY
+// const googleKey = process.env.GOOGLE_SECRET_KEY
 
-const show = function (data) {
+const showCity = function (city) {
+  console.log(city)
   return $.ajax({
-    url: config.apiOrigins.google + googleKey,
+    url: config.apiOrigin + '/locations',
     method: 'POST',
     data: {
-
+      'address': city
     }
   })
+}
+
+module.exports = {
+  showCity
 }
