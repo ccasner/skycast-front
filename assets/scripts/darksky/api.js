@@ -9,6 +9,17 @@ const showWeather = function (id) {
   })
 }
 
+const showDay = function (id, unixTime) {
+  return $.ajax({
+    url: config.apiOrigin + '/locations/' + id,
+    method: 'GET',
+    data: {
+      'forecast': unixTime
+    }
+  })
+}
+
 module.exports = {
-  showWeather
+  showWeather,
+  showDay
 }
