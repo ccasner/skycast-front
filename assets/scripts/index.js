@@ -13,4 +13,5 @@ $(() => {
 $(() => {
   $('#darksky-search').on('submit', darkEvents.onGetWeather)
   $('#google-search').on('submit', googleEvents.onSearchCity)
+  $('#recents').on('submit', darkEvents.onViewRecent)
 })
