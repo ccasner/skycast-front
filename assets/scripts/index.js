@@ -3,12 +3,15 @@
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 
+const darkEvents = require('./darksky/events')
+const googleEvents = require('./google/events')
+
 $(() => {
   setAPIOrigin(location, config)
 })
 
-// use require with a reference to bundle the file and use it in this file
-// const example = require('./example')
-
-// use require without a reference to ensure a file is bundled
-// require('./example')
+$(() => {
+  $('#darksky-search').on('submit', darkEvents.onGetWeather)
+  $('#google-search').on('submit', googleEvents.onSearchCity)
+  $('#recents').on('submit', darkEvents.onViewRecent)
+})
