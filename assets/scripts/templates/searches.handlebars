@@ -1,0 +1,7 @@
+{{#each locations as |location|}}
+<div class="col-6 box-location">
+  <div class="col-3" data-id="{{location.id}}">
+    <div class="locationAddress" data-item-address="{{location.address}}">City: {{location.address}}</div>
+  </div>
+</div>
+{{/each}}
