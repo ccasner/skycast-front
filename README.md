@@ -4,11 +4,19 @@ A disruptive new weather data startup, SkyCast Inc., reached out to you for your
 
 ## Link to Backend-Api Repo: https://gitlab.com/ccasner/SkyCast-rails
 ## Link to Backend-Api Deployed Site: https://skycast-railsapi.herokuapp.com/
+## Link to Fontend Deployed Site: https://skycast-front.firebaseapp.com/ (not working properly)
 
 ## Development Process
 
-Being unfamiliar with third party API usage through the backend of a rails app, I had a lot of research to do before beginning. I made the mistake of trying to make the calls through the frontend which proved to be very challenging as I couldn't find a way to keep my keys secret. That's when it dawned on be that I would have to make these calls through my rails API. I spent some time trying to find the file that they belonged in and eventually got some responses through the controller. Given that the DarkSky API provides so much information, I would have liked to be able to get the visualization library working. Also, the styling to very minimal and needs much work in future iterations. 
+Being unfamiliar with third party API usage through the backend of a rails app, I had a lot of research to do before beginning. I made the mistake of trying to make the calls through the frontend which proved to be very challenging as I couldn't find a way to keep my keys secret. That's when it dawned on be that I would have to make these calls through my rails API. I spent some time trying to find the file that they belonged in and eventually got some responses through the controller. Given that the DarkSky API provides so much information, I would have liked to be able to get the visualization library working. Also, the styling to very minimal and needs much work in future iterations.
 
+## Issues to Resolve
+
+- Deployed site to firebase only shows index.html file - can only use app on localhost
+- Data visualization library needs to appear on webpage. Need to do more research on Google Charts.
+- Styling to make data appear more user friendly. Very basic application running as of now.
+- Better representation of recent searches - need to setup authentication for user so they can see searches between browser sessions. Would need to add user_id to locations table and sort from there.
+- Incorporate skycons as part of visual representation of data.
 
 ## APIs to Use
 SkyCast is looking to leverage a weather API (https://developer.forecast.io) combined with a geolocation API (https://developers.google.com/maps) to allow users to retrieve current as well as historic data about any location that the users search.
