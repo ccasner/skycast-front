@@ -7,15 +7,20 @@ const darkUi = require('./ui')
 const onGetWeather = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data.time)
   const unixTime = new Date(data.time).getTime() / 1000
-  console.log(unixTime)
-  const id = 45
-  darkApi.showDay(id, unixTime)
-    .then(darkUi.onSuccess)
+  const address = data.address
+  darkApi.showDay(address, unixTime)
+    .then(darkUi.onDaySuccess)
+    .catch(darkUi.onFailure)
+}
+const onViewRecent = function (event) {
+  event.preventDefault()
+  darkApi.viewRecent()
+    .then(darkUi.onViewRecentSuccess)
     .catch(darkUi.onFailure)
 }
 
 module.exports = {
-  onGetWeather
+  onGetWeather,
+  onViewRecent
 }
