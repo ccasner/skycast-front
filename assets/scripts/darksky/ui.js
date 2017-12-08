@@ -1,9 +1,11 @@
 'use strict'
 const store = require('../store')
 const showForecast = require('../templates/forecast.handlebars')
+const showSearches = require('../templates/searches.handlebars')
+const darkApi = require('./api')
 
 const onSuccess = function (data) {
-  console.log(data)
+  $('#recent-address').hide()
   store.weather = data
   $('#temp').html(store.weather.currently.temperature)
   $('#summary').html(store.weather.hourly.summary)
@@ -44,15 +46,43 @@ const getForecast = function () {
     }
     hourlyData.push(hourly)
   }
+  $('#current-weather').show()
+  $('#hourly-forecast-head').show()
+  $('#hourly-forecast').show()
   const showForecastHourly = showForecast({ locations: hourlyData })
   $('#hourly-forecast').html(showForecastHourly)
 }
 
+const onDaySuccess = function (data) {
+  store.location = data.location
+  const id = store.location.id
+  $('#city').html(store.location.address)
+  darkApi.showWeather(id)
+    .then(onSuccess)
+    .catch(onFailure)
+}
+const onViewRecentSuccess = function (data) {
+  $('#hourly-forecast').hide()
+  $('#current-weather').hide()
+  $('#recent-address').show()
+  store.searches = data.locations
+  const num = store.searches.length
+  const searchArr = []
+  for (let i = num - 1; i > num - 11; i--) {
+    searchArr.push({
+      address: store.searches[i].address
+    })
+  }
+  const showRecentSearches = showSearches({ locations: searchArr })
+  $('#recent-address').html(showRecentSearches)
+}
 const onFailure = function (error) {
   console.log(error)
 }
 
 module.exports = {
   onSuccess,
+  onDaySuccess,
+  onViewRecentSuccess,
   onFailure
 }
