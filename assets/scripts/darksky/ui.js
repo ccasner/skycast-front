@@ -1,5 +1,6 @@
 'use strict'
 const store = require('../store')
+const showForecast = require('../templates/forecast.handlebars')
 
 const onSuccess = function (data) {
   console.log(data)
@@ -11,6 +12,12 @@ const onSuccess = function (data) {
   $('#wind').html(store.weather.currently.windSpeed)
   $('#visibility').html(store.weather.currently.visibility)
   $('#uv').html(store.weather.currently.uvIndex)
+  getForecast()
+}
+const getForecast = function () {
+  const showForecastHourly = showForecast({ locations: store.weather.hourly.data })
+  $('#hourly-forecast').html(showForecastHourly)
+  console.log(store.weather.hourly.data)
 }
 
 const onFailure = function (error) {

@@ -1,0 +1,8 @@
+{{#each locations as |location|}}
+<div class="col-6 box-location">
+  <div class="col-3 pull-left container-location-info" data-id="{{location.id}}">
+    <li class="locationTime" data-item-time="{{location.time}}">Time: {{location.time}}</li>
+    <li class="locationTemp" data-item-temp="{{location.temperature}}">Temperature: {{location.temperature}}</li>
+  </div>
+</div>
+{{/each}}
