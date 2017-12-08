@@ -17,20 +17,35 @@ const onSuccess = function (data) {
 
 const getForecast = function () {
   const timesArr = []
-  for (let i = 0; i < 12; i++) {
+  const tempsArr = []
+  for (let i = 0; i < 10; i++) {
     timesArr.push(store.weather.hourly.data[i].time)
+    tempsArr.push(store.weather.hourly.data[i].temperature)
   }
+
+  const roundedTemps = []
+  tempsArr.forEach(function (temp) {
+    const newTemp = Math.round(temp)
+    roundedTemps.push(newTemp)
+  })
+
   const convertedTime = []
   timesArr.forEach(function (time) {
     const date = new Date(time * 1000)
     const hour = date.getHours()
     convertedTime.push(hour)
   })
-  console.log(convertedTime)
-
-  const showForecastHourly = showForecast({ locations: store.weather.hourly.data })
+  const hourlyData = []
+  for (let i = 0; i < 10; i++) {
+    const hourly = {
+      time: convertedTime[i],
+      summary: store.weather.hourly.data[i].summary,
+      temp: roundedTemps[i]
+    }
+    hourlyData.push(hourly)
+  }
+  const showForecastHourly = showForecast({ locations: hourlyData })
   $('#hourly-forecast').html(showForecastHourly)
-  console.log(store.weather.hourly.data)
 }
 
 const onFailure = function (error) {
