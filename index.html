@@ -10,6 +10,7 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
     </head>
     <body class="container-fluid">
       <h1>SkyCast, Inc.</h1>
@@ -17,10 +18,14 @@
         <input type="text" name="address" placeholder="Search by City">
         <button type="submit" class="btn btn-default">Search City</button>
       </form>
-      <form class="darksky" id="darksky-search">
-        <input type="text" name="long" placeholder="Longitude">
-        <input type="text" name="lat" placeholder="Latitude">
-        <button type="submit" class="btn btn-default">Get Weather</button>
-      </form>
+      <h3>Current Weather for <span id="city"></span></h3>
+      <div id="weather-content" class="forecast">
+        <li>Temperature: <span id="temp"></span>°F</li>
+        <li>Summary: <span id="summary"></span></li>
+        <li>Humidity: <span id="humidity"></span>%</li>
+        <li>Wind: <span id="wind"></span>mph</li>
+        <li>Visibility: <span id="visibility"></span>mi</li>
+        <li>UV Index: <span id="uv"></span></li>
+      </div>
     </body>
 </html>
