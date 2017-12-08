@@ -1,7 +1,6 @@
 'use strict'
 
 const getFormFields = require('../../../lib/get-form-fields')
-
 const googleApi = require('./api')
 const googleUi = require('./ui')
 

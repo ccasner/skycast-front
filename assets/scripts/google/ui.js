@@ -1,7 +1,15 @@
 'use strict'
+const store = require('../store')
+const darkApi = require('../darksky/api')
+const darkUi = require('../darksky/ui')
 
 const onSuccess = function (data) {
+  store.location = data.location
+  const id = store.location.id
   console.log(data)
+  darkApi.showWeather(id)
+    .then(darkUi.onSuccess)
+    .catch(darkUi.onFailure)
 }
 
 const onFailure = function (error) {
