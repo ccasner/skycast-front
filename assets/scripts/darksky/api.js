@@ -9,17 +9,27 @@ const showWeather = function (id) {
   })
 }
 
-const showDay = function (id, unixTime) {
+const showDay = function (address, unixTime) {
   return $.ajax({
-    url: config.apiOrigin + '/locations/' + id,
-    method: 'GET',
+    url: config.apiOrigin + '/locations',
+    method: 'POST',
     data: {
-      'forecast': unixTime
+      'location': {
+        'address': address,
+        'time': unixTime
+      }
     }
+  })
+}
+const viewRecent = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/locations',
+    method: 'GET'
   })
 }
 
 module.exports = {
   showWeather,
-  showDay
+  showDay,
+  viewRecent
 }
