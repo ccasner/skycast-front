@@ -16,21 +16,21 @@ const onSuccess = function (data) {
 }
 
 const getForecast = function () {
+  const timesArr = []
+  for (let i = 0; i < 12; i++) {
+    timesArr.push(store.weather.hourly.data[i].time)
+  }
+  const convertedTime = []
+  timesArr.forEach(function (time) {
+    const date = new Date(time * 1000)
+    const hour = date.getHours()
+    convertedTime.push(hour)
+  })
+  console.log(convertedTime)
+
   const showForecastHourly = showForecast({ locations: store.weather.hourly.data })
   $('#hourly-forecast').html(showForecastHourly)
   console.log(store.weather.hourly.data)
-  // const convertTime = function () {
-  //   for (let i = 0; i < 12; i++) {
-  //     const time = store.weather.hourly.data[i].time * 1000
-  //     const date = new Date(time)
-  //     const hours = date.getHours()
-  //     console.log(hours)
-  //   }
-  //   convertTime()
-    // store.weather.hourly.data.time = hours
-    // console.log(store.weather.hourly.data.time)
-  // store.weather.hourly.data.forEach(convertTime())
-  // console.log(store.weather.hourly.data)
 }
 
 const onFailure = function (error) {
