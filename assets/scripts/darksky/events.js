@@ -12,7 +12,7 @@ const onGetWeather = function (event) {
   const lat = data.lat
   console.log(event.target)
   console.log(data)
-  darkApi.show(lat, long)
+  darkApi.showWeather(lat, long)
     .then(darkUi.onSuccess)
     .catch(darkUi.onFailure)
 }

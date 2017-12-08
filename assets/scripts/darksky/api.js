@@ -2,15 +2,13 @@
 
 const config = require('../config')
 
-const darkKey = process.env.DS_SECRET_KEY
-
-const show = function (lat, long) {
+const showWeather = function (id) {
   return $.ajax({
-    url: config.apiOrigins.darkSky + darkKey + '/' + lat + ',' + long,
+    url: config.apiOrigin + '/locations/' + id,
     method: 'GET'
   })
 }
 
 module.exports = {
-  show
+  showWeather
 }
