@@ -4,7 +4,8 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 body {
   font-size: 16px;
   font-family: sans-serif;
-  background-color: #00BFFF;
+  background-color: #0E7D77;
+  color: #CFCEDF;
 }
 #current-weather {
   display: none;
@@ -16,12 +17,27 @@ body {
 #hourly-forecast-head {
   display: none;
 }
+.locationTime {
+  font-size: 20px;
+  float: left;
+}
+.locationTemp {
+  font-size: 30px;
+  float: right;
+}
+.locationSummary {
+  font-size: 15px;
+  text-align: center;
+}
 .hourly-info {
+  width: 90%;
   padding: 10px;
   float: left;
-  border: 1px solid black;
+  clear: both;
+  border: 1px solid #4E4E53;
+  text-align: center;
 }
 input {
-  border: 2px solid black;
+  border: 2px solid #4E4E53;
   border-radius: 10%;
 }

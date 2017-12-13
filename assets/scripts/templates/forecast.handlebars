@@ -1,9 +1,9 @@
 {{#each locations as |location|}}
-<div class="col-6 box-location">
-  <div class="col-3 hourly-info" data-id="{{location.id}}">
+<div class="col-lg-12">
+  <div class="col hourly-info" data-id="{{location.id}}">
     <div class="locationTime" data-item-time="{{location.time}}">Time: {{location.time}}:00</div>
-    <div class="locationTemp" data-item-temp="{{location.temp}}">Temperature: {{location.temp}}°F</div>
-    <div class="locationSummary" data-item-summary="{{location.summary}}">Summary: {{location.summary}}</div>
+    <div class="locationTemp" data-item-temp="{{location.temp}}">{{location.temp}}°F</div>
+    <div class="locationSummary" data-item-summary="{{location.summary}}">{{location.summary}}</div>
   </div>
 </div>
 {{/each}}
